@@ -1,0 +1,8 @@
+language: java
+sudo: required
+services:
+  - docker
+jdk: oraclejdk8
+script:
+   - ./gradlew clean check stage
+   - docker build -t therickys93/ibanandccbot .
