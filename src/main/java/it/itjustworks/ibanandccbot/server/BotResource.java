@@ -17,7 +17,6 @@ import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
 import com.pengrad.telegrambot.response.SendResponse;
 
-import it.itjustworks.ibanandccbot.commands.BotResponse;
 import it.itjustworks.ibanandccbot.utilities.TelegramIP;
 
 public class BotResource extends ServerResource{
@@ -63,7 +62,7 @@ public class BotResource extends ServerResource{
 					+ "Per controllare lo stato dei nostri servizi clicca sul link: \n"
 					+ "www.itjustworks.it/status/";
 		} else {
-			answer = new BotResponse.Builder().build().reply(message);
+			answer = "Questo bot è in sviluppo riprovare più avanti";
 		}
 		getLogger().info(answer);
 		
