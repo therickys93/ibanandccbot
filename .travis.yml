@@ -1,8 +1,13 @@
 language: java
 sudo: required
 services:
-  - docker
+- docker
 jdk: oraclejdk8
 script:
-   - ./gradlew clean check stage
-   - docker build -t therickys93/ibanandccbot .
+- ./gradlew clean check stage
+- docker build -t therickys93/ibanandccbot .
+deploy:
+  provider: heroku
+  app: check-iban-and-cc-bot 
+  api_key:
+    secure: FvDCnI6f3rYA2fX56X93j+WRG7TNtK46iv7KFz5Gtv2YMup5aJRCBwC2+Ubb8f22m+gM2O5LvUF0MveIQCUdEZR0gwMLtnjmWP7TTAtbmBDTsoYA9TEtz1QClBkbOZoevh+Vv6UM5wrhdduSWtC8JtmdZCEnBjaneysYKRWXjQgCUhSDDg/0xMoBOSgzXnpoZ/Ksvp9U6vTplMWIh4J5Zs9C0hQ+OH2i01jxMS3B9TMG6g5K0TTy3VSQZQPf/cvJVJRAA1KS3od4ZBjAux4/etqYd6+ilVK3cLg7xjTFoRjoaDHhGrYaJ8ZHezZk8mq03M1VwiJS8/luB0gdpuMMLuYgMZhz2v5cIQv/QxCRLqzBlJn8SU+ilQNna6BAvii+lgIoImLrsvjda1+EtEpTnCPT2J8geT3O0E0YoPvkJdnWGN0YwED3ZyaU3BRv+A1738k5KaixG/YiIf7d8akSl85o1v3S2xTWxC71lPNzj/sgS3BouFUQC0x4Hpp1qnAPgwBA5wr/TksiMa0EhmJtm+AymQGBGvihZjmnVwpoUr1oq9VYV9uAVwyfknOXS8WbmWOyNBC3ZMPKKipbjcajAIviErsn1KvzvVfmZ40AWy2qMaCZaEBPMxGdKkk8Ko6A1DTNBzjLfU4idyAnzG9Q6WkC7u/rnRQXVE8VNRvxqxA=
