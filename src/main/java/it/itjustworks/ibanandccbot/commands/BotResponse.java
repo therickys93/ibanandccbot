@@ -19,11 +19,6 @@ private HashMap<String, Command> commands = new HashMap<String, Command>();
 		public BotResponse build(){
 			return new BotResponse(this);
 		}
-
-		public Builder withCommands(HashMap<String,Command> commands) {
-			this.commands = commands;
-			return this;
-		}
 	}
 	
 	private BotResponse(Builder build) {

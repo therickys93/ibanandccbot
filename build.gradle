@@ -30,6 +30,13 @@ jacocoTestReport {
         csv.enabled false
         html.destination "${buildDir}/reports/jacoco"
     }
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: "${buildDir}/classes/main", 
+            exclude: ['it/itjustworks/ibanandccbot/server/**',
+            'it/itjustworks/ibanandccbot/utilities/**'])
+        })
+    }
 }
 
 repositories {
