@@ -10,8 +10,10 @@ private HashMap<String, Command> commands = new HashMap<String, Command>();
 		protected HashMap<String, Command> commands = new HashMap<String, Command>();
 		
 		public Builder() {
+			commands.put("/start start", new StartCommand());
 			commands.put("/start", new StartCommand());
 			commands.put("/help", new HelpCommand());
+			commands.put("/feedback", new FeedbackCommand());
 		}
 		
 		public BotResponse build(){
@@ -36,8 +38,7 @@ private HashMap<String, Command> commands = new HashMap<String, Command>();
 		if(commands.containsKey(command)){
 			response = commands.get(command).execute(argument);
 		} else {
-			// create an invalid command or do what ever you want
-			response = new StringBuilder(message).reverse().toString();
+			response = new InvalidCommand().execute(null);
 		}
 		
 		return response;
