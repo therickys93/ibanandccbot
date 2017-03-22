@@ -85,6 +85,23 @@ public class CommandsTest {
 		assertEquals("Comando errato!\nes. /cc numero_cc_qui", answer);
 	}
 	
+	@Test
+	public void testAbleCommand() {
+		String message = "/cosasafare";
+		String answer = new BotResponse.Builder().build().reply(message);
+		assertEquals(botAbilitiesOutput(), answer);
+	}
+	
+	private String botAbilitiesOutput() {
+		String response = "";
+		response += "Questo bot è in grado di verificare la correttezza di un "
+				+ "codice IBAN italiano e la correttezza di una carta di credito."
+				+ " La carta di credito deve essere o American Express o Mastercard o Visa da 13 e 16"
+				+ " caratteri.\n"
+				+ "Altre carte o altri IBAN verranno aggiunti in seguito.";
+		return response;
+	}
+	
 	private String ccOkOutput() {
 		String response = "";
 		response += "Carta di Credito:\n";
@@ -131,7 +148,8 @@ public class CommandsTest {
 	
 	private String feedbackResponse() {
 		String response = "";
-		response += "Se hai bisogno di aiuto o hai una domanda da farci, utilizza il nostro bot di supporto @itjustworksbot.\n"
+		response += "Se hai bisogno di aiuto o hai una domanda da farci, "
+				+ "utilizza il nostro bot di supporto @itjustworksbot.\n"
 				+ "Ti risponderemo il prima possibile!";
 		return response;
 	}
@@ -148,7 +166,8 @@ public class CommandsTest {
 				+ "/iban ( con parametro ) --> verifica correttezza IBAN\n"
 				+ "/cc ( con parametro ) --> verifica correttezza carta di credito\n"
 				+ "/help --> mostra questo messaggio\n"
-				+ "/feedback --> invia un messaggio a chi lo ha sviluppato\n";
+				+ "/feedback --> invia un messaggio a chi lo ha sviluppato\n"
+				+ "/cosasafare --> mostra cosa è in grado di fare il bot\n";
 		return response;
 	}
 	

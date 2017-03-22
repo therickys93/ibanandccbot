@@ -9,7 +9,8 @@ public class HelpCommand implements Command {
 				+ "/iban ( con parametro ) --> verifica correttezza IBAN\n"
 				+ "/cc ( con parametro ) --> verifica correttezza carta di credito\n"
 				+ "/help --> mostra questo messaggio\n"
-				+ "/feedback --> invia un messaggio a chi lo ha sviluppato\n";
+				+ "/feedback --> invia un messaggio a chi lo ha sviluppato\n"
+				+ "/cosasafare --> mostra cosa è in grado di fare il bot\n";
 		return output;
 	}
 

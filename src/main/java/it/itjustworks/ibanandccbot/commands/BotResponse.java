@@ -16,6 +16,7 @@ private HashMap<String, Command> commands = new HashMap<String, Command>();
 			commands.put("/feedback", new FeedbackCommand());
 			commands.put("/iban", new IbanCommand());
 			commands.put("/cc", new CCCommand());
+			commands.put("/cosasafare", new AbilitiesCommand());
 		}
 		
 		public BotResponse build(){
