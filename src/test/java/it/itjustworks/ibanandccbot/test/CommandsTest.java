@@ -43,6 +43,92 @@ public class CommandsTest {
 		assertEquals(feedbackResponse(), answer);
 	}
 	
+	@Test
+	public void testIbanNotOkCommand() {
+		String message = "/iban IT34K6789101112131415161718";
+		String answer = new BotResponse.Builder().build().reply(message);
+		assertEquals(ibanNotOkOutput(), answer);
+	}
+	
+	@Test
+	public void testIbanOkCommand() {
+		String message = "/iban IT02D0326802801052879623060";
+		String answer = new BotResponse.Builder().build().reply(message);
+		assertEquals(ibanOkOutput(), answer);
+	}
+	
+	@Test
+	public void testIbanWithNoIban() {
+		String message = "/iban";
+		String answer = new BotResponse.Builder().build().reply(message);
+		assertEquals(invocationIbanCodeErrorResponse(), answer);
+	}
+	
+	@Test
+	public void testCreditCardNotOkCommand() {
+		String message = "/cc 1234567890123";
+		String answer = new BotResponse.Builder().build().reply(message);
+		assertEquals(ccNotOkOutput(), answer);
+	}
+	
+	@Test
+	public void testCreditCardOkCommand() {
+		String message = "/cc 4111111111111111";
+		String answer = new BotResponse.Builder().build().reply(message);
+		assertEquals(ccOkOutput(), answer);
+	}
+	
+	@Test
+	public void testNoCreditCard() {
+		String message = "/cc";
+		String answer = new BotResponse.Builder().build().reply(message);
+		assertEquals("Comando errato!\nes. /cc numero_cc_qui", answer);
+	}
+	
+	private String ccOkOutput() {
+		String response = "";
+		response += "Carta di Credito:\n";
+		response += "n°: 4111111111111111\n";
+		response += "checksum: ✅\n";
+		response += "tipo: Visa";
+		return response;
+	}
+	
+	private String ccNotOkOutput() {
+		String response = "";
+		response += "Carta di Credito:\n";
+		response += "n°: 1234567890123\n";
+		response += "checksum: ❌\n";
+		response += "tipo: Carta Non Valida";
+		return response;
+	}
+	
+	private String invocationIbanCodeErrorResponse() {
+		String response = "";
+		response += "Comando errato!\nes. /iban codice_iban_qui";
+		return response;
+	}
+	
+	private String ibanOkOutput() {
+		String response = "";
+		response += "IBAN:\n";
+		response += "n°: IT02D0326802801052879623060\n";
+		response += "lunghezza: ✅\n";
+		response += "n° controllo: ✅\n";
+		response += "checksum: ✅";
+		return response;
+	}
+	
+	private String ibanNotOkOutput() {
+		String response = "";
+		response += "IBAN:\n";
+		response += "n°: IT34K6789101112131415161718\n";
+		response += "lunghezza: ✅\n";
+		response += "n° controllo: ❌\n";
+		response += "checksum: ❌";
+		return response;
+	}
+	
 	private String feedbackResponse() {
 		String response = "";
 		response += "Se hai bisogno di aiuto o hai una domanda da farci, utilizza il nostro bot di supporto @itjustworksbot.\n"
