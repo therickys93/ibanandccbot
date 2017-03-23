@@ -10,13 +10,22 @@ private HashMap<String, Command> commands = new HashMap<String, Command>();
 		protected HashMap<String, Command> commands = new HashMap<String, Command>();
 		
 		public Builder() {
-			commands.put("/start start", new StartCommand());
+			// comandi globali
 			commands.put("/start", new StartCommand());
+			
+			// comandi Telegram
 			commands.put("/help", new HelpCommand());
 			commands.put("/feedback", new FeedbackCommand());
 			commands.put("/iban", new IbanCommand());
 			commands.put("/cc", new CCCommand());
 			commands.put("/cosasafare", new AbilitiesCommand());
+
+			// comandi Facebook
+			commands.put("aiuto", new HelpCommand());
+			commands.put("feedback", new FeedbackCommand());
+			commands.put("iban", new IbanCommand());
+			commands.put("cc", new CCCommand());
+			commands.put("cosasafare", new AbilitiesCommand());
 		}
 		
 		public BotResponse build(){

@@ -23,6 +23,13 @@ public class CommandsTest {
 	}
 	
 	@Test
+	public void testAiutoCommand() {
+		String message = "aiuto";
+		String answer = new BotResponse.Builder().build().reply(message);
+		assertEquals(helpResponse(), answer);
+	}
+	
+	@Test
 	public void testStartCommand() {
 		String message = "/start";
 		String answer = new BotResponse.Builder().build().reply(message);
@@ -44,8 +51,22 @@ public class CommandsTest {
 	}
 	
 	@Test
+	public void testFeedback() {
+		String message = "feedback";
+		String answer = new BotResponse.Builder().build().reply(message);
+		assertEquals(feedbackResponse(), answer);
+	}
+	
+	@Test
 	public void testIbanNotOkCommand() {
 		String message = "/iban IT34K6789101112131415161718";
+		String answer = new BotResponse.Builder().build().reply(message);
+		assertEquals(ibanNotOkOutput(), answer);
+	}
+	
+	@Test
+	public void testIbanNotOk() {
+		String message = "iban IT34K6789101112131415161718";
 		String answer = new BotResponse.Builder().build().reply(message);
 		assertEquals(ibanNotOkOutput(), answer);
 	}
@@ -58,8 +79,22 @@ public class CommandsTest {
 	}
 	
 	@Test
+	public void testIbanOk() {
+		String message = "iban IT02D0326802801052879623060";
+		String answer = new BotResponse.Builder().build().reply(message);
+		assertEquals(ibanOkOutput(), answer);
+	}
+	
+	@Test
 	public void testIbanWithNoIban() {
 		String message = "/iban";
+		String answer = new BotResponse.Builder().build().reply(message);
+		assertEquals(invocationIbanCodeErrorResponse(), answer);
+	}
+	
+	@Test
+	public void testIbanWithNoIbanInserted() {
+		String message = "iban";
 		String answer = new BotResponse.Builder().build().reply(message);
 		assertEquals(invocationIbanCodeErrorResponse(), answer);
 	}
@@ -72,8 +107,22 @@ public class CommandsTest {
 	}
 	
 	@Test
+	public void testCreditCardNotOk() {
+		String message = "cc 1234567890123";
+		String answer = new BotResponse.Builder().build().reply(message);
+		assertEquals(ccNotOkOutput(), answer);
+	}
+	
+	@Test
 	public void testCreditCardOkCommand() {
 		String message = "/cc 4111111111111111";
+		String answer = new BotResponse.Builder().build().reply(message);
+		assertEquals(ccOkOutput(), answer);
+	}
+	
+	@Test
+	public void testCreditCardOk() {
+		String message = "cc 4111111111111111";
 		String answer = new BotResponse.Builder().build().reply(message);
 		assertEquals(ccOkOutput(), answer);
 	}
@@ -82,12 +131,32 @@ public class CommandsTest {
 	public void testNoCreditCard() {
 		String message = "/cc";
 		String answer = new BotResponse.Builder().build().reply(message);
-		assertEquals("Comando errato!\nes. /cc numero_cc_qui", answer);
+		assertEquals(noCreditCard(), answer);
+	}
+	
+	@Test
+	public void testNoCreditCardInserted() {
+		String message = "cc";
+		String answer = new BotResponse.Builder().build().reply(message);
+		assertEquals(noCreditCard(), answer);
+	}
+	
+	private String noCreditCard() {
+		String response = "";
+		response += "Comando errato!\nes. /cc numero_cc_qui";
+		return response;
 	}
 	
 	@Test
 	public void testAbleCommand() {
 		String message = "/cosasafare";
+		String answer = new BotResponse.Builder().build().reply(message);
+		assertEquals(botAbilitiesOutput(), answer);
+	}
+	
+	@Test
+	public void testAble() {
+		String message = "cosasafare";
 		String answer = new BotResponse.Builder().build().reply(message);
 		assertEquals(botAbilitiesOutput(), answer);
 	}
