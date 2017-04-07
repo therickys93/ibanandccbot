@@ -73,14 +73,14 @@ public class CommandsTest {
 	
 	@Test
 	public void testIbanOkCommand() {
-		String message = "/iban IT02D0326802801052879623060";
+		String message = "/iban IT40S0542811101000000123456";
 		String answer = new BotResponse.Builder().build().reply(message);
 		assertEquals(ibanOkOutput(), answer);
 	}
 	
 	@Test
 	public void testIbanOk() {
-		String message = "iban IT02D0326802801052879623060";
+		String message = "iban IT40S0542811101000000123456";
 		String answer = new BotResponse.Builder().build().reply(message);
 		assertEquals(ibanOkOutput(), answer);
 	}
@@ -198,7 +198,7 @@ public class CommandsTest {
 	private String ibanOkOutput() {
 		String response = "";
 		response += "IBAN:\n";
-		response += "n°: IT02D0326802801052879623060\n";
+		response += "n°: IT40S0542811101000000123456\n";
 		response += "lunghezza: ✅\n";
 		response += "n° controllo: ✅\n";
 		response += "checksum: ✅";
