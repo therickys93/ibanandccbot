@@ -50,7 +50,7 @@ dependencies {
     compile 'org.restlet.jse:org.restlet:2.3.9'
     compile 'org.restlet.jse:org.restlet.ext.jackson:2.3.9'
     compile 'com.github.pengrad:java-telegram-bot-api:2.3.1'
-    compile 'com.github.therickys93:bankutil:1.2.1'
+    compile 'com.github.therickys93:bankutil:1.2.2'
     testCompile 'junit:junit:4.12'
     testCompile 'com.github.stefanbirkner:system-rules:1.16.0'
     testCompile 'org.mockito:mockito-core:2.7.14'

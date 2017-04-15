@@ -201,7 +201,10 @@ public class CommandsTest {
 		response += "n°: IT40S0542811101000000123456\n";
 		response += "lunghezza: ✅\n";
 		response += "n° controllo: ✅\n";
-		response += "checksum: ✅";
+		response += "checksum: ✅\n";
+		response += "abi: 05428\n";
+		response += "cab: 11101\n";
+		response += "n° conto: 000000123456";
 		return response;
 	}
 	
@@ -211,7 +214,10 @@ public class CommandsTest {
 		response += "n°: IT34K6789101112131415161718\n";
 		response += "lunghezza: ✅\n";
 		response += "n° controllo: ❌\n";
-		response += "checksum: ❌";
+		response += "checksum: ❌\n";
+		response += "abi: 67891\n";
+		response += "cab: 01112\n";
+		response += "n° conto: 131415161718";
 		return response;
 	}
 	
