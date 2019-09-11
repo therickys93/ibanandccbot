@@ -47,13 +47,6 @@ public class BotResource extends ServerResource{
 			return null;
 		}
 		
-		String ipTelegramAddress = Request.getCurrent().getHeaders().getFirstValue("X-Forwarded-For", true);
-		if(TelegramIP.isOk(ipTelegramAddress) == false){
-			getLogger().warning(WRONG_TELEGRAM_IP);
-			setStatus(Status.CLIENT_ERROR_BAD_REQUEST, WRONG_TELEGRAM_IP);
-			return null;
-		}
-		
 		final TelegramBot bot = TelegramBotAdapter.build(Config.INSTANCE.BOT_TOKEN);
 		bot.execute(new SendChatAction(update.message().chat().id(), ChatAction.typing.toString()));
 		
